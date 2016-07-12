@@ -7,7 +7,8 @@ import (
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
   stream_url := r.FormValue("streamurl")
-  cmd := exec.Command("livestreamer", stream_url)
+  suffix := "omxplayer -o hdmi"
+  cmd := exec.Command("livestreamer", stream_url, "-np", suffix)
   cmd.Start()
 }
 
